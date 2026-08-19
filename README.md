@@ -6,7 +6,7 @@ This repository supports the replication package for **[PAPER TITLE PLACEHOLDER]
 
 ## Data source
 
-The raw annual files (`year_2018.csv` through `year_2025.csv`) are unmodified downloads from the **CFPB HMDA public LAR / data browser**:
+The raw annual files (`year_2018.csv` through `year_2025.csv`) are unmodified downloads from the **https://ffiec.cfpb.gov/data-browser/**:
 
 - Source: https://ffiec.cfpb.gov/data-browser/ (or the exact URL used — update this line)
 - Reporting years: 2018–2025
@@ -41,7 +41,7 @@ Each year's raw CSV is compressed into a single `.7z` archive and uploaded as a 
 
 Each archive is a complete, single-volume `.7z` file (the `.001` suffix is retained from the splitting workflow, but no further parts exist — there is no `.002`).
 
-Download the Release: **https://github.com/USERNAME/hmda-convergence-data/releases**
+Download the Release: **https://github.com/gjanardhan-1/hmda-annual-datasets**
 
 ## How to reconstruct and verify the data
 
@@ -75,8 +75,8 @@ Download the Release: **https://github.com/USERNAME/hmda-convergence-data/releas
 
 ## License / data use note
 
-The HMDA data distributed here are unmodified public releases from the CFPB/FFIEC and are subject to their original terms of use. Code in this repository is licensed under [LICENSE PLACEHOLDER].
+The HMDA data distributed here are unmodified public releases from the CFPB/FFIEC and are subject to their original terms of use. Code in this repository is **licensed under [LICENSE PLACEHOLDER]**.
 
 ## Contact
 
-Questions about this replication package can be directed to [CONTACT PLACEHOLDER].
+Questions about this replication package can be directed to **[]**.
