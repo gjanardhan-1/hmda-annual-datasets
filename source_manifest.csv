@@ -1,0 +1,9 @@
+year,original_filename,archive_filename,source_url,download_date,file_size_bytes,sha256,status
+2018,year_2018.csv,hmda_2018.7z.001,https://ffiec.cfpb.gov/data-browser/,18-08-2026,5879026670,6b6678ce3c3dc0c640b867b77a10cce3e8ec05e91965e77c44ef0bce4c28c924,Unmodified Data
+2019,year_2019.csv,hmda_2019.7z.001,https://ffiec.cfpb.gov/data-browser/,17-08-2026,6836452154,07d446d0a67f984c25266e3df03336fe2479363af547f04aa208cf6178a17912,Unmodified Data
+2020,year_2020.csv,hmda_2020.7z.001,https://ffiec.cfpb.gov/data-browser/,17-08-2026,9763705571,bbba61acae812ab49c26d14933ebcd05cf2cd6db73cf1c9358a965b2c60cac20,Unmodified Data
+2021,year_2021.csv,hmda_2021.7z.001,https://ffiec.cfpb.gov/data-browser/,31-07-2026,10009507734,09b799bb462cb76c7118288bbf3afec8edf6a49aad19a6c6002eb1f50782d073,Unmodified Data
+2022,year_2022.csv,hmda_2022.7z.001,https://ffiec.cfpb.gov/data-browser/,30-07-2026,6118181623,01e219d87e256ec468d2d26a0d81083c036d1795407bc5c2119627d25bdb5bb2,Unmodified Data
+2023,year_2023.csv,hmda_2023.7z.001,https://ffiec.cfpb.gov/data-browser/,30-07-2026,4399684763,b2fcebcc952cc25cc133f75912845374f876ce56bd4542b97f44c0cc2d9c5652,Unmodified Data
+2024,year_2024.csv,hmda_2024.7z.001,https://ffiec.cfpb.gov/data-browser/,30-07-2026,4636615274,9f38ccda3b3eb88a22d7eb3c1745a0d418ae533486bd483d3bb7e5d3f6f8efe4,Unmodified Data
+2025,year_2025.csv,hmda_2025.7z.001,https://ffiec.cfpb.gov/data-browser/,17-08-2026,5114432389,f0608858c8fd3661ef9c4f944f672b1afb46a2d2883f176bbc1e7c14c0e35c47,Unmodified Data
