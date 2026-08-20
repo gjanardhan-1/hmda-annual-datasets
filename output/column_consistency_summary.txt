@@ -1,0 +1,106 @@
+FDIC FINANCIALS - COLUMN CONSISTENCY SUMMARY
+Generated: 2026-08-03T13:01:48
+Baseline year used for comparison: 2018
+
+ROW COUNTS PER FILE:
+  2018: 5,473 rows, 13 columns
+  2019: 5,244 rows, 13 columns
+  2020: 5,067 rows, 13 columns
+  2021: 4,904 rows, 13 columns
+  2022: 4,773 rows, 13 columns
+  2023: 4,658 rows, 13 columns
+  2024: 4,560 rows, 13 columns
+  2025: 4,411 rows, 13 columns
+
+TOTAL DISTINCT COLUMN NAMES SEEN ACROSS ALL 8 FILES: 13
+COLUMNS IN BASELINE (2018): 13
+
+PER-YEAR COLUMN-SET COMPARISON AGAINST BASELINE:
+  2018: MATCH -- identical column set to baseline (2018)
+  2019: MATCH -- identical column set to baseline (2018)
+  2020: MATCH -- identical column set to baseline (2018)
+  2021: MATCH -- identical column set to baseline (2018)
+  2022: MATCH -- identical column set to baseline (2018)
+  2023: MATCH -- identical column set to baseline (2018)
+  2024: MATCH -- identical column set to baseline (2018)
+  2025: MATCH -- identical column set to baseline (2018)
+
+COLUMN ORDER CHECK (informational -- order differences don't break pandas column-name-based code, but flagged in case you have any position-based logic):
+
+NUMERIC FIELD COMPLETENESS:
+  ('% blank' = share of ALL rows with no value; '% numeric' = share of the
+   NON-blank values that successfully parse as a number -- these are independent checks.)
+  ASSET:
+    2018: 100% populated and numeric
+    2019: 100% populated and numeric
+    2020: 100% populated and numeric
+    2021: 100% populated and numeric
+    2022: 100% populated and numeric
+    2023: 100% populated and numeric
+    2024: 100% populated and numeric
+    2025: 100% populated and numeric
+  ESAL:
+    2018: 100.0% of non-blank values numeric [0.31% BLANK]
+    2019: 100.0% of non-blank values numeric [0.32% BLANK]
+    2020: 100.0% of non-blank values numeric [0.34% BLANK]
+    2021: 100.0% of non-blank values numeric [0.35% BLANK]
+    2022: 100.0% of non-blank values numeric [0.36% BLANK]
+    2023: 100.0% of non-blank values numeric [0.36% BLANK]
+    2024: 100.0% of non-blank values numeric [0.37% BLANK]
+    2025: 100.0% of non-blank values numeric [0.39% BLANK]
+  NONIXAY:
+    2018: 100% populated and numeric
+    2019: 100% populated and numeric
+    2020: 100% populated and numeric
+    2021: 100% populated and numeric
+    2022: 100% populated and numeric
+    2023: 100% populated and numeric
+    2024: 100% populated and numeric
+    2025: 100% populated and numeric
+  ASTEMPM:
+    2018: 100.0% of non-blank values numeric [0.62% BLANK]
+    2019: 100.0% of non-blank values numeric [0.67% BLANK]
+    2020: 100.0% of non-blank values numeric [0.65% BLANK]
+    2021: 100.0% of non-blank values numeric [0.69% BLANK]
+    2022: 100.0% of non-blank values numeric [0.69% BLANK]
+    2023: 100.0% of non-blank values numeric [0.73% BLANK]
+    2024: 100.0% of non-blank values numeric [0.75% BLANK]
+    2025: 100.0% of non-blank values numeric [0.73% BLANK]
+  ROA:
+    2018: 100% populated and numeric
+    2019: 100% populated and numeric
+    2020: 100% populated and numeric
+    2021: 100% populated and numeric
+    2022: 100% populated and numeric
+    2023: 100% populated and numeric
+    2024: 100% populated and numeric
+    2025: 100% populated and numeric
+  RBC1AAJ:
+    2018: 100% populated and numeric
+    2019: 100% populated and numeric
+    2020: 100% populated and numeric
+    2021: 100% populated and numeric
+    2022: 100% populated and numeric
+    2023: 100% populated and numeric
+    2024: 100% populated and numeric
+    2025: 100% populated and numeric
+  NCLNLSR:
+    2018: 100% populated and numeric
+    2019: 100% populated and numeric
+    2020: 100% populated and numeric
+    2021: 100% populated and numeric
+    2022: 100% populated and numeric
+    2023: 100% populated and numeric
+    2024: 100% populated and numeric
+    2025: 100% populated and numeric
+  NUMEMP:
+    2018: 100.0% of non-blank values numeric [0.31% BLANK]
+    2019: 100.0% of non-blank values numeric [0.32% BLANK]
+    2020: 100.0% of non-blank values numeric [0.34% BLANK]
+    2021: 100.0% of non-blank values numeric [0.35% BLANK]
+    2022: 100.0% of non-blank values numeric [0.36% BLANK]
+    2023: 100.0% of non-blank values numeric [0.36% BLANK]
+    2024: 100.0% of non-blank values numeric [0.37% BLANK]
+    2025: 100.0% of non-blank values numeric [0.39% BLANK]
+
+OVERALL RESULT: ALL 8 FILES HAVE IDENTICAL COLUMN SETS

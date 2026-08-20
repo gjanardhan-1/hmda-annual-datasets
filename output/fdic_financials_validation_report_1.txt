@@ -1,0 +1,28 @@
+FDIC FINANCIALS - VALIDATION REPORT
+Generated: 2026-08-03T12:47:33
+
+FILE PRESENCE CHECK:
+  2018: OK
+  2019: OK
+  2020: OK
+  2021: OK
+  2022: OK
+  2023: OK
+  2024: OK
+  2025: OK
+
+All 8 expected files (2018-2025) present.
+
+PER-FILE UNIQUENESS CHECK ON (year, CERT):
+  2018: PASS -- 5,473 rows, all CERT values unique
+  2019: PASS -- 5,244 rows, all CERT values unique
+  2020: PASS -- 5,067 rows, all CERT values unique
+  2021: PASS -- 4,904 rows, all CERT values unique
+  2022: PASS -- 4,773 rows, all CERT values unique
+  2023: PASS -- 4,658 rows, all CERT values unique
+  2024: PASS -- 4,560 rows, all CERT values unique
+  2025: PASS -- 4,411 rows, all CERT values unique
+
+Total rows across all 8 files: 39,090
+
+OVERALL RESULT: PASSED

@@ -1,0 +1,29 @@
+                              OLS Regression Results                             
+=================================================================================
+Dep. Variable:     external_aus_coverage   R-squared:                       0.197
+Model:                               OLS   Adj. R-squared:                  0.190
+Method:                    Least Squares   F-statistic:                     24.44
+Date:                   Tue, 04 Aug 2026   Prob (F-statistic):           6.45e-20
+Time:                           19:19:38   Log-Likelihood:                -11.308
+No. Observations:                    621   AIC:                             34.62
+Df Residuals:                        615   BIC:                             61.20
+Df Model:                              5                                         
+Covariance Type:                 cluster                                         
+====================================================================================
+                       coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------------
+Intercept            0.4404      0.303      1.455      0.146      -0.153       1.034
+C(year)[T.2024]      0.0298      0.011      2.798      0.005       0.009       0.051
+C(year)[T.2025]      0.0216      0.012      1.730      0.084      -0.003       0.046
+log_assets          -0.0573      0.012     -4.621      0.000      -0.082      -0.033
+log_applications     0.0824      0.019      4.422      0.000       0.046       0.119
+approval_rate        0.6991      0.201      3.481      0.000       0.305       1.093
+==============================================================================
+Omnibus:                      171.722   Durbin-Watson:                   0.772
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              360.826
+Skew:                          -1.524   Prob(JB):                     4.44e-79
+Kurtosis:                       5.156   Cond. No.                         413.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)
