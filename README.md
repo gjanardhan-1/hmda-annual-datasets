@@ -8,7 +8,7 @@ This repository supports the replication package for **[PAPER TITLE PLACEHOLDER]
 
 The raw annual files (`year_2018.csv` through `year_2025.csv`) are unmodified downloads from the **https://ffiec.cfpb.gov/data-browser/**:
 
-- Source: https://ffiec.cfpb.gov/data-browser/ (or the exact URL used — update this line)
+- Source: https://ffiec.cfpb.gov/data-browser
 - Reporting years: 2018–2025
 - File status: Unchanged official public snapshots, as downloaded
 
@@ -70,12 +70,123 @@ Download the Release: **https://github.com/gjanardhan-1/hmda-annual-datasets**
 
 ## Derived data and code
 
-- `code/` — [describe processing pipeline here]
+- `code/` — consists of:
+Core pipeline (raw data → final analysis dataset)
+
+1. hamda_part_1.py (= hmda_pipeline.py)
+Reads the 16 raw HMDA ZIP files (2018–2025, LAR + TS), applies the sample filters (owner-occupied, site-built, 1–4 family, home purchase, first lien, conventional/conforming, valid outcome), derives primary_AUS from the aus-1/aus_1 field, and writes out application_level.parquet. This is where the underscore-vs-hyphen bug (aus_1 vs aus-1) originally lived and was fixed.
+
+2. hmda_part2.py (= lender_year_panel.py)
+Aggregates application_level.parquet up to one row per (LEI, year), computing application_count, approval_rate, denial_rate, and the AUS shares (du_share, lpa_share, internal_aus_share, other_aus_share, external_aus_coverage). Writes lender_year_panel.parquet. This is where we fixed the MemoryError by limiting to 4 needed columns.
+
+3. hmda_merging_1.py
+Merges the lender-year panel with your hmda-2018-present.xlsx crosswalk on (year, lei) to attach cert, rssd, and other bank identifiers, and flags valid_fdic_cert. Saves linked_lender_year.parquet/.csv. (Corresponds to step 3.1.)
+
+4. hmda_fdicmerging_and_merging_with_first_merger.py
+Loads and combines the 8 yearly fdic_XXXX_q4.csv files, then merges them onto linked_lender_year.parquet by (year, cert) to attach real bank financials (asset, etc.), producing linked_final.parquet/.csv and the matched_fdic_financials flag. (Step 3.2.)
+
+5. hmda_section3_3_3_4.py (named hmda_section3.3&3.4.py in the doc content)
+Builds the per-year audit table (match rates for valid_fdic_cert and matched_fdic_financials), then filters to the final analysis sample: matched + application_count >= 500 + years 2023–2025. Saves analysis_sample.parquet/.csv. (Steps 3.3–3.4.)
+
+6. hmda_3_5_constructionDerivedVariables.py and hmda_derived_variablesgeneration.py
+Two versions of the same step (3.5): compute log_assets, log_applications, salary_to_assets, high_external_reliance, and asset_quartile from the analysis sample, with sanity checks for inf/NaN. Saves analysis_sample_derived.parquet/.csv. The derived_variablesgeneration.py version also re-runs the 3.4 filtering step first (loads from linked_final.parquet instead of analysis_sample.parquet), so it's a self-contained combination of 3.4+3.5.
+
+FDIC data-quality checking (side scripts, not in the main chain)
+
+7. hmda_fdic_filesChecking.py
+Checks whether all 8 fdic_XXXX_q4.csv files share identical columns (same names, same order) across years, and reports what fraction of key numeric fields (ASSET, ROA, etc.) are populated/parseable per year. Flags any year where a field silently went missing or blank.
+
+8. hmda_fdic_filesreport_generation.py
+Validates the 8 FDIC files for basic integrity: confirms all 8 expected years are present, and checks that CERT is unique within each file (a duplicate would mean overlapping report types got pulled by mistake).
+
+Robustness/validation check (independent path, live APIs)
+
+9. hmda_fdic_robustness_check.py and hmda_check_3sample_v2.py
+Two versions of the same standalone robustness-check script: pulls AUS reliance live from the CFPB HMDA Data Browser API for a small hand-picked set of banks (bypassing your main offline pipeline entirely), cross-walked via FDIC's institutions API and the local hmda-2018-present.xlsx file, then runs a small regression (du_lpa_share ~ log_assets + C(year)) as a sanity check against your main results. hmda_check_3sample_v2.py is the fully corrected final version (fixed local crosswalk path, fixed dtype mismatch, fixed the "2-filters-max" API limit); hmda_fdic_robustness_check.py is the same script mid-fix.
+
+Utility / diagnostic scripts
+
+10. hmda_hashesgeneration.py (= hmda_manifest.py)
+Not something we built together in this conversation — a separate utility that scans a folder of downloaded HMDA ZIP files and generates a SHA-256 checksum manifest (hmda_download_manifest.csv, SHA256SUMS.txt) to verify none of your original downloads got corrupted.
+
+11. hmda_undersatnding_variables.py (= inspect_large_csv.py)
+A general-purpose exploratory tool: inspects any large CSV without loading it fully into memory, lists all columns and inferred dtypes, and determines whether the data is annual or monthly granularity by checking date/year columns. 
 - Public FDIC data and the lender crosswalk used for institution-level linkage are [describe location/source here]
 
 ## License / data use note
 
-The HMDA data distributed here are unmodified public releases from the CFPB/FFIEC and are subject to their original terms of use. Code in this repository is **licensed under [LICENSE PLACEHOLDER]**.
+The HMDA data distributed here are unmodified public releases from the CFPB/FFIEC and are subject to their original terms of use.
+
+## Additional repository contents (added after initial upload)
+
+In addition to the original HMDA annual archives (Release: `hmda-raw-2018-2025-v1`), this repository now includes:
+
+| Folder | Description |
+|---|---|
+| `fdic_data/` | Quarterly FDIC financial data (`fdic_20XX_q4.csv`), 2018–2025, used for lender-level linkage |
+| `crosswalk/` | Lender crosswalk file (`hmda-2018-present.xlsx`) linking HMDA LEIs to FDIC certificates |
+| `code/` | Python scripts used for data processing, linkage, and analysis |
+| `output/` | Derived datasets and results generated by the scripts in `code/` |
+
+### `code/`
+- `hmda_check_3sample_v2.py` — [ADD ONE-LINE DESCRIPTION]
+
+### `output/`
+Derived files generated during processing, including:
+- `analysis_sample.csv` / `.parquet` — [ADD DESCRIPTION]
+- `analysis_sample_derived.csv` / `.parquet` — [ADD DESCRIPTION]
+- `linked_final.csv` / `.parquet` — HMDA–FDIC linked lender-level dataset
+- `linked_lender_year.csv` / `.parquet` — lender-year panel
+- `audit_match_rate_by_year.csv` — linkage match-rate audit by year
+- `column_consistency_report.csv` / `column_consistency_summary.txt` — schema consistency checks across years
+- `fdic_financials_validation_report_1.txt` — validation report for FDIC financial data
+- `regression_output.txt` — model/regression results
+- `SHA256SUMS.txt` — checksums for the output files above
+
+## HMDA snapshot files (second Release)
+
+In addition to the original compressed annual archives, official **HMDA snapshot files** (Loan/Application Register and Transmittal Sheet, as distributed by the CFPB HMDA public data browser) are provided as a separate GitHub Release:
+
+**Release:** `hmda-snapshots-2018-2025-v1`
+**URL:** https://github.com/gjanardhan-1/hmda-annual-datasets/releases/tag/hmda-snapshots-2018-2025-v1
+
+Each reporting year (2018–2025) includes two unmodified files:
+
+| File | Description |
+|---|---|
+| `YYYY_public_lar_csv.zip` | Loan-level records (Loan/Application Register) |
+| `YYYY_public_ts_csv.zip` | Transmittal sheet (institution-level summary) |
+
+These files are provided as-is (standard `.zip`, not re-compressed), since each is well under GitHub's 2 GiB Release-asset limit.
+
+### Verifying snapshot file integrity
+
+Compare each downloaded file's SHA-256 hash against `SHA256SUMS_snapshots.txt` (attached to the same Release):
+
+**Windows (PowerShell):**
+```powershell
+Get-FileHash .\2018_public_lar_csv.zip -Algorithm SHA256
+```
+
+**macOS/Linux:**
+```bash
+shasum -a 256 2018_public_lar_csv.zip
+```
+
+The resulting hash must match the corresponding line in `SHA256SUMS_snapshots.txt`.
+
+## Updated repository/Release map
+
+| Data | Location | Format |
+|---|---|---|
+| Annual HMDA archives (2018–2025) | Release `hmda-raw-2018-2025-v1` | `.7z.001` (compressed CSV) |
+| HMDA snapshot files (LAR + TS, 2018–2025) | Release `hmda-snapshots-2018-2025-v1` | `.zip` (as downloaded) |
+| FDIC quarterly financial data | Repository, `fdic_data/` | `.csv` |
+| Lender crosswalk | Repository, `crosswalk/` | `.xlsx` |
+| Processing code | Repository, `code/` | `.py` |
+| Derived outputs | Repository, `output/` | `.csv`, `.parquet`, `.txt` |
+
+
 
 ## Contact
 
