@@ -132,13 +132,21 @@ A general-purpose exploratory tool: inspects any large CSV without loading it fu
 ### `output/`
 Derived files generated during processing, including:
 analysis_sample.csv / .parquet — the filtered regression-ready subset of linked_final: lender-years with a matched FDIC financial record and ≥500 applications, restricted to 2023–2025 (the years with clean year-end financials); output of section 3.4.
+
 analysis_sample_derived.csv / .parquet — analysis_sample with the added derived variables used in the regression: log_assets, log_applications, salary_to_assets, high_external_reliance, and asset_quartile; output of section 3.5.
+
 linked_final.csv / .parquet — HMDA–FDIC linked lender-level dataset
+
 linked_lender_year.csv / .parquet — lender-year panel
+
 audit_match_rate_by_year.csv — linkage match-rate audit by year
+
 column_consistency_report.csv / column_consistency_summary.txt — schema consistency checks across years
+
 fdic_financials_validation_report_1.txt — validation report for FDIC financial data
+
 regression_output.txt — model/regression results
+
 SHA256SUMS.txt — checksums for the output files above
 
 ## HMDA snapshot files (second Release)
