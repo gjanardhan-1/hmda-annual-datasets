@@ -41,7 +41,7 @@ Each year's raw CSV is compressed into a single `.7z` archive and uploaded as a 
 
 Each archive is a complete, single-volume `.7z` file (the `.001` suffix is retained from the splitting workflow, but no further parts exist — there is no `.002`).
 
-Download the Release: **https://github.com/gjanardhan-1/hmda-annual-datasets/releases**
+Download the Release: **https://github.com/gjanardhan-1/hmda-annual-datasets/releases#release-hmda-raw-2018-2025-v1**
 
 ## How to reconstruct and verify the data
 
@@ -154,7 +154,7 @@ SHA256SUMS.txt — checksums for the output files above
 In addition to the original compressed annual archives, official **HMDA snapshot files** (Loan/Application Register and Transmittal Sheet, as distributed by the CFPB HMDA public data browser) are provided as a separate GitHub Release:
 
 **Release:** `HMDA Snapshot Files (LAR + TS), 2018–2025`
-**URL:**https://github.com/gjanardhan-1/hmda-annual-datasets/releases
+**URL:**https://github.com/gjanardhan-1/hmda-annual-datasets/releases#release-hmda-snapshots-2018-2025-v1**
 
 Each reporting year (2018–2025) includes two unmodified files:
 
