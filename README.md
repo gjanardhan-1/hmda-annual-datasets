@@ -192,946 +192,1115 @@ The resulting hash must match the corresponding line in `SHA256SUMS_snapshots.tx
 | Processing code | Repository, `code/` | `.py` |
 | Derived outputs | Repository, `output/` | `.csv`, `.parquet`, `.txt` |
 
-Public HMDA - LAR Data Fields
-activity_year
-•	Description: The calendar year the data submission covers
-activity_year	Value
-2017	2017
-2018	2018
-2019	2019
-2020	2020
-2021	2021
-2022	2022
-2023	2023
-2024	2024
-2025	2025
-lei
-•	Description: A financial institution’s Legal Entity Identifier
-•	Values:
-o	Varying values
-derived_msa-md
-•	Description: The 5 digit derived MSA (metropolitan statistical area) or MD (metropolitan division) code. An MSA/MD is an area that has at least one urbanized area of 50,000 or more population.
-•	Values:
-o	Varying values
-state_code
-•	Description: Two-letter state code
-•	Values:
-o	Varying values
-county_code
-•	Description: State-county FIPS code
-•	Values:
-o	Varying values
-census_tract
-•	Description: 11 digit census tract number
-•	Values:
-o	Varying values
-derived_loan_product_type
-•	Description: Derived loan product type from Loan Type and Lien Status fields for easier querying of specific records
-•	Values:
-o	Conventional:First Lien
-o	FHA:First Lien
-o	VA:First Lien
-o	FSA/RHS:First Lien
-o	Conventional:Subordinate Lien
-o	FHA:Subordinate Lien
-o	VA:Subordinate Lien
-o	FSA/RHS:Subordinate Lien
-derived_dwelling_category
-•	Description: Derived dwelling type from Construction Method and Total Units fields for easier querying of specific records
-•	Values:
-o	Single Family (1-4 Units):Site-Built
-o	Multifamily:Site-Built (5+ Units)
-o	Single Family (1-4 Units):Manufactured
-o	Multifamily:Manufactured (5+ Units)
-conforming_loan_limit
-•	Description: Indicates whether the reported loan amount exceeds the GSE (government sponsored enterprise) conforming loan limit
-•	Values:
-o	C (Conforming)
-o	NC (Nonconforming)
-o	U (Undetermined)
-o	NA (Not Applicable)
-derived_ethnicity
-•	Description: Single aggregated ethnicity categorization derived from applicant/borrower and co-applicant/co-borrower ethnicity fields
-•	Values:
-o	Hispanic or Latino
-o	Not Hispanic or Latino
-o	Joint
-o	Ethnicity Not Available
-o	Free Form Text Only
-derived_race
-•	Description: Single aggregated race categorization derived from applicant/borrower and co-applicant/co-borrower race fields
-•	Values:
-o	American Indian or Alaska Native
-o	Asian
-o	Black or African American
-o	Native Hawaiian or Other Pacific Islander
-o	White
-o	2 or more minority races
-o	Joint
-o	Free Form Text Only
-o	Race Not Available
-derived_sex
-•	Description: Single aggregated sex categorization derived from applicant/borrower and co-applicant/co-borrower sex fields
-•	Values:
-o	Male
-o	Female
-o	Joint
-o	Sex Not Available
-action_taken
-•	Description: The action taken on the covered loan or application
-•	Values:
-o	1 - Loan originated
-o	2 - Application approved but not accepted
-o	3 - Application denied
-o	4 - Application withdrawn by applicant
-o	5 - File closed for incompleteness
-o	6 - Purchased loan
-o	7 - Preapproval request denied
-o	8 - Preapproval request approved but not accepted
-purchaser_type
-•	Description: Type of entity purchasing a covered loan from the institution
-•	Values:
-o	0 - Not applicable
-o	1 - Fannie Mae
-o	2 - Ginnie Mae
-o	3 - Freddie Mac
-o	4 - Farmer Mac
-o	5 - Private securitizer
-o	6 - Commercial bank, savings bank, or savings association
-o	71 - Credit union, mortgage company, or finance company
-o	72 - Life insurance company
-o	8 - Affiliate institution
-o	9 - Other type of purchaser
-preapproval
-•	Description: Whether the covered loan or application involved a request for a preapproval of a home purchase loan under a preapproval program
-•	Values:
-o	1 - Preapproval requested
-o	2 - Preapproval not requested
-loan_type
-•	Description: The type of covered loan or application
-•	Values:
-o	1 - Conventional (not insured or guaranteed by FHA, VA, RHS, or FSA)
-o	2 - Federal Housing Administration insured (FHA)
-o	3 - Veterans Affairs guaranteed (VA)
-o	4 - USDA Rural Housing Service or Farm Service Agency guaranteed (RHS or FSA)
-loan_purpose
-•	Description: The purpose of covered loan or application
-•	Values:
-o	1 - Home purchase
-o	2 - Home improvement
-o	31 - Refinancing
-o	32 - Cash-out refinancing
-o	4 - Other purpose
-o	5 - Not applicable
-lien_status
-•	Description: Lien status of the property securing the covered loan, or in the case of an application, proposed to secure the covered loan
-•	Values:
-o	1 - Secured by a first lien
-o	2 - Secured by a subordinate lien
-reverse_mortgage
-•	Description: Whether the covered loan or application is for a reverse mortgage
-•	Values:
-o	1 - Reverse mortgage
-o	2 - Not a reverse mortgage
-o	1111 - Exempt
-open-end_line_of_credit
-•	Description: Whether the covered loan or application is for an open-end line of credit
-•	Values:
-o	1 - Open-end line of credit
-o	2 - Not an open-end line of credit
-o	1111 - Exempt
-business_or_commercial_purpose
-•	Description: Whether the covered loan or application is primarily for a business or commercial purpose
-•	Values:
-o	1 - Primarily for a business or commercial purpose
-o	2 - Not primarily for a business or commercial purpose
-o	1111 - Exempt
-loan_amount
-•	Description: The amount of the covered loan, or the amount applied for
-•	Values:
-o	Varying values
-combined_loan_to_value_ratio
-•	Description: The ratio of the total amount of debt secured by the property to the value of the property relied on in making the credit decision
-•	Values:
-o	Varying values
-interest_rate
-•	Description: The interest rate for the covered loan or application
-•	Values:
-o	Varying values
-rate_spread
-•	Description: The difference between the covered loan’s annual percentage rate (APR) and the average prime offer rate (APOR) for a comparable transaction as of the date the interest rate is set
-•	Values:
-o	Varying values
-hoepa_status
-•	Description: Whether the covered loan is a high-cost mortgage
-•	Values:
-o	1 - High-cost mortgage
-o	2 - Not a high-cost mortgage
-o	3 - Not applicable
-total_loan_costs
-•	Description: The amount, in dollars, of total loan costs
-•	Values:
-o	Varying values
-total_points_and_fees
-•	Description: The total points and fees, in dollars, charged in connection with the covered loan
-•	Values:
-o	Varying values
-origination_charges
-•	Description: The total of all itemized amounts, in dollars, that are designated borrower-paid at or before closing
-•	Values:
-o	Varying values
-discount_points
-•	Description: The points paid, in dollars, to the creditor to reduce the interest rate
-•	Values:
-o	Varying values
-lender_credits
-•	Description: The amount, in dollars, of lender credits
-•	Values:
-o	Varying values
-loan_term
-•	Description: The number of months after which the legal obligation will mature or terminate, or would have matured or terminated
-•	Values:
-o	Varying values
-prepayment_penalty_term
-•	Description: The term, in months, of any prepayment penalty
-•	Values:
-o	Varying values
-intro_rate_period
-•	Description: The number of months, or proposed number of months in the case of an application, until the first date the interest rate may change after closing or account opening
-•	Values:
-o	Varying values
-negative_amortization
-•	Description: Whether the contractual terms include, or would have included, a term that would cause the covered loan to be a negative amortization loan
-•	Values:
-o	1 - Negative amortization
-o	2 - No negative amortization
-o	1111 - Exempt
-interest_only_payment
-•	Description: Whether the contractual terms include, or would have included, interest-only payments
-•	Values:
-o	1 - Interest-only payments
-o	2 - No interest-only payments
-o	1111 - Exempt
-balloon_payment
-•	Description: Whether the contractual terms include, or would have included, a balloon payment
-•	Values:
-o	1 - Balloon payment
-o	2 - No balloon payment
-o	1111 - Exempt
-other_nonamortizing_features
-•	Description: Whether the contractual terms include, or would have included, any term, other than those described in Paragraphs 1003.4(a)(27)(i), (ii), and (iii) that would allow for payments other than fully amortizing payments during the loan term
-•	Values:
-o	1 - Other non-fully amortizing features
-o	2 - No other non-fully amortizing features
-o	1111 - Exempt
-property_value
-•	Description: The value of the property securing the covered loan or, in the case of an application, proposed to secure the covered loan, relied on in making the credit decision
-•	Values:
-o	Varying values; Rounded to the midpoint of the nearest $10,000 interval for which the reported value falls
-construction_method
-•	Description: Construction method for the dwelling
-•	Values:
-o	1 - Site-built
-o	2 - Manufactured home
-occupancy_type
-•	Description: Occupancy type for the dwelling
-•	Values:
-o	1 - Principal residence
-o	2 - Second residence
-o	3 - Investment property
-manufactured_home_secured_property_type
-•	Description: Whether the covered loan or application is, or would have been, secured by a manufactured home and land, or by a manufactured home and not land
-•	Values:
-o	1 - Manufactured home and land
-o	2 - Manufactured home and not land
-o	3 - Not applicable
-o	1111 - Exempt
-manufactured_home_land_property_interest
-•	Description: The applicant’s or borrower’s land property interest in the land on which a manufactured home is, or will be, located
-•	Values:
-o	1 - Direct ownership
-o	2 - Indirect ownership
-o	3 - Paid leasehold
-o	4 - Unpaid leasehold
-o	5 - Not applicable
-o	1111 - Exempt
-total_units
-•	Description: The number of individual dwelling units related to the property securing the covered loan or, in the case of an application, proposed to secure the covered loan
-•	Values:
-o	1
-o	2
-o	3
-o	4
-o	5-24
-o	25-49
-o	50-99
-o	100-149
-o	>149
-ageapplicant
-•	Description: The age of the applicant
-•	Values:
-o	<25
-o	25-34
-o	35-44
-o	45-54
-o	55-64
-o	65-74
-o	>74
-o	8888
-multifamily_affordable_units
-•	Description: Reported values as a percentage, rounded to the nearest whole number, of the value reported for Total Units
-•	Values:
-o	Varying values
-income
-•	Description: The gross annual income, in thousands of dollars, relied on in making the credit decision, or if a credit decision was not made, the gross annual income relied on in processing the application
-•	Values:
-o	Varying values
-debt_to_income_ratio
-•	Description: The ratio, as a percentage, of the applicant’s or borrower’s total monthly debt to the total monthly income relied on in making the credit decision
-•	Varying values; Ratios binned are:
-o	<20%
-o	20%-<30%
-o	30%-<36%
-o	36%
-o	37%
-o	38%
-o	39%
-o	40%
-o	41%
-o	42%
-o	43%
-o	44%
-o	45%
-o	46%
-o	47%
-o	48%
-o	49%
-o	50%-60%
-o	>60%
-o	NA
-o	Exempt
-applicant_credit_score_type
-•	Description: The name and version of the credit scoring model used to generate the credit score, or scores, relied on in making the credit decision
-•	Values:
-o	1 - Equifax Beacon 5.0
-o	2 - Experian Fair Isaac
-o	3 - FICO Risk Score Classic 04
-o	4 - FICO Risk Score Classic 98
-o	5 - VantageScore 2.0
-o	6 - VantageScore 3.0
-o	7 - More than one credit scoring model
-o	8 - Other credit scoring model
-o	9 - Not applicable
-o	1111 - Exempt
-co-applicant_credit_score_type
-•	Description: The name and version of the credit scoring model used to generate the credit score, or scores, relied on in making the credit decision
-•	Values:
-o	1 - Equifax Beacon 5.0
-o	2 - Experian Fair Isaac
-o	3 - FICO Risk Score Classic 04
-o	4 - FICO Risk Score Classic 98
-o	5 - VantageScore 2.0
-o	6 - VantageScore 3.0
-o	7 - More than one credit scoring model
-o	8 - Other credit scoring model
-o	9 - Not applicable
-o	10 - No co-applicant
-o	11 – FICO Score 9
-o	12 – FICO Score 8
-o	13 – FICO Score 10
-o	14 – FICO Score 10T
-o	15 - VantageScore 4.0
-o	1111 - Exempt
-applicant_ethnicity-1
-•	Description: Ethnicity of the applicant or borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-o	3 - Information not provided by applicant in mail, internet, or telephone application
-o	4 - Not applicable
-applicant_ethnicity-2
-•	Description: Ethnicity of the applicant or borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-applicant_ethnicity-3
-•	Description: Ethnicity of the applicant or borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-applicant_ethnicity-4
-•	Description: Ethnicity of the applicant or borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-applicant_ethnicity-5
-•	Description: Ethnicity of the applicant or borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-co-applicant_ethnicity-1
-•	Description: Ethnicity of the first co-applicant or co-borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-o	3 - Information not provided by applicant in mail, internet, or telephone application
-o	4 - Not applicable
-o	5 - No co-applicant
-co-applicant_ethnicity-2
-•	Description: Ethnicity of the first co-applicant or co-borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-co-applicant_ethnicity-3
-•	Description: Ethnicity of the first co-applicant or co-borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-co-applicant_ethnicity-4
-•	Description: Ethnicity of the first co-applicant or co-borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-co-applicant_ethnicity-5
-•	Description: Ethnicity of the first co-applicant or co-borrower
-•	Values:
-o	1 - Hispanic or Latino
-o	11 - Mexican
-o	12 - Puerto Rican
-o	13 - Cuban
-o	14 - Other Hispanic or Latino
-o	2 - Not Hispanic or Latino
-applicant_ethnicity_observed
-•	Description: Whether the ethnicity of the applicant or borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-co-applicant_ethnicity_observed
-•	Description: Whether the ethnicity of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-o	4 - No co-applicant
-applicant_race-1
-•	Description: Race of the applicant or borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-o	6 - Information not provided by applicant in mail, internet, or telephone application
-o	7 - Not applicable
-applicant_race-2
-•	Description: Race of the applicant or borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-applicant_race-3
-•	Description: Race of the applicant or borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-applicant_race-4
-•	Description: Race of the applicant or borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-applicant_race-5
-•	Description: Race of the applicant or borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-co-applicant_race-1
-•	Description: Race of the first co-applicant or co-borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-o	6 - Information not provided by applicant in mail, internet, or telephone application
-o	7 - Not applicable
-o	8 - No co-applicant
-co-applicant_race-2
-•	Description: Race of the first co-applicant or co-borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-co-applicant_race-3
-•	Description: Race of the first co-applicant or co-borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-co-applicant_race-4
-•	Description: Race of the first co-applicant or co-borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-co-applicant_race-5
-•	Description: Race of the first co-applicant or co-borrower
-•	Values:
-o	1 - American Indian or Alaska Native
-o	2 - Asian
-o	21 - Asian Indian
-o	22 - Chinese
-o	23 - Filipino
-o	24 - Japanese
-o	25 - Korean
-o	26 - Vietnamese
-o	27 - Other Asian
-o	3 - Black or African American
-o	4 - Native Hawaiian or Other Pacific Islander
-o	41 - Native Hawaiian
-o	42 - Guamanian or Chamorro
-o	43 - Samoan
-o	44 - Other Pacific Islander
-o	5 - White
-applicant_race_observed
-•	Description: Whether the race of the applicant or borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-co-applicant_race_observed
-•	Description: Whether the race of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-o	4 - No co-applicant
-applicant_sex
-•	Description: Sex of the applicant or borrower
-•	Values:
-o	1 - Male
-o	2 - Female
-o	3 - Information not provided by applicant in mail, internet, or telephone application
-o	4 - Not applicable
-o	6 - Applicant selected both male and female
-co-applicant_sex
-•	Description: Sex of the first co-applicant or co-borrower
-•	Values:
-o	1 - Male
-o	2 - Female
-o	3 - Information not provided by applicant in mail, internet, or telephone application
-o	4 - Not applicable
-o	5 - No co-applicant
-o	6 - Co-applicant selected both male and female
-applicant_sex_observed
-•	Description: Whether the sex of the applicant or borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-co-applicant_sex_observed
-•	Description: Whether the sex of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
-•	Values:
-o	1 - Collected on the basis of visual observation or surname
-o	2 - Not collected on the basis of visual observation or surname
-o	3 - Not applicable
-o	4 - No co-applicant
-applicant_age_above_62
-•	Description: Whether the applicant or borrower age is 62 or above
-•	Values:
-o	Yes
-o	No
-o	NA
-co-applicant_age
-•	Description: The age, in years, of the first co-applicant or co-borrower
-•	Varying values; Ages binned are:
-o	< 25
-o	25-34
-o	35-44
-o	45-54
-o	55-64
-o	65-74
-o	> 74
-o	8888
-o	9999
-co-applicant_age_above_62
-•	Description: Whether the co-applicant or co-borrower age is 62 or above
-•	Values:
-o	Yes
-o	No
-o	NA
-submission_of_application
-•	Description: Whether the applicant or borrower submitted the application directly to the financial institution
-•	Values:
-o	1 - Submitted directly to your institution
-o	2 - Not submitted directly to your institution
-o	3 - Not applicable
-o	1111 - Exempt
-initially_payable_to_institution
-•	Description: Whether the obligation arising from the covered loan was, or, in the case of an application, would have been, initially payable to the financial institution
-•	Values:
-o	1 - Initially payable to your institution
-o	2 - Not initially payable to your institution
-o	3 - Not applicable
-o	1111 - Exempt
-aus-1
-•	Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
-•	Values:
-o	1 - Desktop Underwriter (DU)
-o	2 - Loan Prospector (LP) or Loan Product Advisor
-o	3 - Technology Open to Approved Lenders (TOTAL) Scorecard
-o	4 - Guaranteed Underwriting System (GUS)
-o	5 - Other
-o	6 - Not applicable
-o	7 - Internal Proprietary System
-o	1111 - Exempt
-aus-2
-•	Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
-•	Values:
-o	1 - Desktop Underwriter (DU)
-o	2 - Loan Prospector (LP) or Loan Product Advisor
-o	3 - Technology Open to Approved Lenders (TOTAL) Scorecard
-o	4 - Guaranteed Underwriting System (GUS)
-o	5 - Other
-o	7 - Internal Proprietary System
-aus-3
-•	Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
-•	Values:
-o	1 - Desktop Underwriter (DU)
-o	2 - Loan Prospector (LP) or Loan Product Advisor
-o	3 - Technology Open to Approved Lenders (TOTAL) Scorecard
-o	4 - Guaranteed Underwriting System (GUS)
-o	7 - Internal Proprietary System
-aus-4
-•	Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
-•	Values:
-o	1 - Desktop Underwriter (DU)
-o	2 - Loan Prospector (LP) or Loan Product Advisor
-o	3 - Technology Open to Approved Lenders (TOTAL) Scorecard
-o	4 - Guaranteed Underwriting System (GUS)
-o	7 - Internal Proprietary System
-aus-5
-•	Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
-•	Values:
-o	1 - Desktop Underwriter (DU)
-o	2 - Loan Prospector (LP) or Loan Product Advisor
-o	3 - Technology Open to Approved Lenders (TOTAL) Scorecard
-o	4 - Guaranteed Underwriting System (GUS)
-o	7 - Internal Proprietary System
-denial_reason-1
-•	Description: The principal reason, or reasons, for denial
-•	Values:
-o	1 - Debt-to-income ratio
-o	2 - Employment history
-o	3 - Credit history
-o	4 - Collateral
-o	5 - Insufficient cash (downpayment, closing costs)
-o	6 - Unverifiable information
-o	7 - Credit application incomplete
-o	8 - Mortgage insurance denied
-o	9 - Other
-o	10 - Not applicable
-denial_reason-2
-•	Description: The principal reason, or reasons, for denial
-•	Values:
-o	1 - Debt-to-income ratio
-o	2 - Employment history
-o	3 - Credit history
-o	4 - Collateral
-o	5 - Insufficient cash (downpayment, closing costs)
-o	6 - Unverifiable information
-o	7 - Credit application incomplete
-o	8 - Mortgage insurance denied
-o	9 - Other
-denial_reason-3
-•	Description: The principal reason, or reasons, for denial
-•	Values:
-o	1 - Debt-to-income ratio
-o	2 - Employment history
-o	3 - Credit history
-o	4 - Collateral
-o	5 - Insufficient cash (downpayment, closing costs)
-o	6 - Unverifiable information
-o	7 - Credit application incomplete
-o	8 - Mortgage insurance denied
-o	9 - Other
-denial_reason-4
-•	Description: The principal reason, or reasons, for denial
-•	Values:
-o	1 - Debt-to-income ratio
-o	2 - Employment history
-o	3 - Credit history
-o	4 - Collateral
-o	5 - Insufficient cash (downpayment, closing costs)
-o	6 - Unverifiable information
-o	7 - Credit application incomplete
-o	8 - Mortgage insurance denied
-o	9 - Other
-Census fields produced by the U.S. Census Bureau and appended to public HMDA Data
-tract_population
-•	Description: Total population in tract
-•	Values:
-o	Varying values
-tract_minority_population_percent
-•	Description: Percentage of minority population to total population for tract, rounded to two decimal places
-•	Values:
-o	Varying values
-ffiec_msa_md_median_family_income
-•	Description: FFIEC Median family income in dollars for the MSA/MD in which the tract is located (adjusted annually by FFIEC)
-•	Values:
-o	Varying values
-tract_to_msa_income_percentage
-•	Description: Percentage of tract median family income compared to MSA/MD median family income
-•	Values:
-o	Varying values
-tract_owner_occupied_units
-•	Description: Number of dwellings, including individual condominiums, that are lived in by the owner
-•	Values:
-o	Varying values
-tract_one_to_four_family_homes
-•	Description: Dwellings that are built to houses with fewer than 5 families
-•	Values:
-o	Varying values
-tract_median_age_of_housing_units
-•	Description: Tract median age of homes
-•	Values:
-o	Varying values
+================================================================================
+PUBLIC HMDA - LAR DATA FIELDS (Loan/Application Register)
+Full field reference — CFPB HMDA Public Data
+================================================================================
 
+1. FIELD: activity_year
+   Description: The calendar year the data submission covers
 
+2. FIELD: lei
+   Description: A financial institution’s Legal Entity Identifier
+   Values:
+      Varying values
 
+3. FIELD: derived_msa-md
+   Description: The 5 digit derived MSA (metropolitan statistical area) or MD (metropolitan division) code. An MSA/MD is an area that has at least one urbanized area of 50,000 or more population.
+   Values:
+      Varying values
 
+4. FIELD: state_code
+   Description: Two-letter state code
+   Values:
+      Varying values
 
+5. FIELD: county_code
+   Description: State-county FIPS code
+   Values:
+      Varying values
+
+6. FIELD: census_tract
+   Description: 11 digit census tract number
+   Values:
+      Varying values
+
+7. FIELD: derived_loan_product_type
+   Description: Derived loan product type from Loan Type and Lien Status fields for easier querying of specific records
+   Values:
+      Conventional:First Lien
+      FHA:First Lien
+      VA:First Lien
+      FSA/RHS:First Lien
+      Conventional:Subordinate Lien
+      FHA:Subordinate Lien
+      VA:Subordinate Lien
+      FSA/RHS:Subordinate Lien
+
+8. FIELD: derived_dwelling_category
+   Description: Derived dwelling type from Construction Method and Total Units fields for easier querying of specific records
+   Values:
+      Single Family (1-4 Units):Site-Built
+      Multifamily:Site-Built (5+ Units)
+      Single Family (1-4 Units):Manufactured
+      Multifamily:Manufactured (5+ Units)
+
+9. FIELD: conforming_loan_limit
+   Description: Indicates whether the reported loan amount exceeds the GSE (government sponsored enterprise) conforming loan limit
+   Values:
+      C (Conforming)
+      NC (Nonconforming)
+      U (Undetermined)
+      NA (Not Applicable)
+
+10. FIELD: derived_ethnicity
+   Description: Single aggregated ethnicity categorization derived from applicant/borrower and co-applicant/co-borrower ethnicity fields
+   Values:
+      Hispanic or Latino
+      Not Hispanic or Latino
+      Joint
+      Ethnicity Not Available
+      Free Form Text Only
+
+11. FIELD: derived_race
+   Description: Single aggregated race categorization derived from applicant/borrower and co-applicant/co-borrower race fields
+   Values:
+      American Indian or Alaska Native
+      Asian
+      Black or African American
+      Native Hawaiian or Other Pacific Islander
+      White
+      2 or more minority races
+      Joint
+      Free Form Text Only
+      Race Not Available
+
+12. FIELD: derived_sex
+   Description: Single aggregated sex categorization derived from applicant/borrower and co-applicant/co-borrower sex fields
+   Values:
+      Male
+      Female
+      Joint
+      Sex Not Available
+
+13. FIELD: action_taken
+   Description: The action taken on the covered loan or application
+   Values:
+      1 - Loan originated
+      2 - Application approved but not accepted
+      3 - Application denied
+      4 - Application withdrawn by applicant
+      5 - File closed for incompleteness
+      6 - Purchased loan
+      7 - Preapproval request denied
+      8 - Preapproval request approved but not accepted
+
+14. FIELD: purchaser_type
+   Description: Type of entity purchasing a covered loan from the institution
+   Values:
+      0 - Not applicable
+      1 - Fannie Mae
+      2 - Ginnie Mae
+      3 - Freddie Mac
+      4 - Farmer Mac
+      5 - Private securitizer
+      6 - Commercial bank, savings bank, or savings association
+      71 - Credit union, mortgage company, or finance company
+      72 - Life insurance company
+      8 - Affiliate institution
+      9 - Other type of purchaser
+
+15. FIELD: preapproval
+   Description: Whether the covered loan or application involved a request for a preapproval of a home purchase loan under a preapproval program
+   Values:
+      1 - Preapproval requested
+      2 - Preapproval not requested
+
+16. FIELD: loan_type
+   Description: The type of covered loan or application
+   Values:
+      1 - Conventional (not insured or guaranteed by FHA, VA, RHS, or FSA)
+      2 - Federal Housing Administration insured (FHA)
+      3 - Veterans Affairs guaranteed (VA)
+      4 - USDA Rural Housing Service or Farm Service Agency guaranteed (RHS or FSA)
+
+17. FIELD: loan_purpose
+   Description: The purpose of covered loan or application
+   Values:
+      1 - Home purchase
+      2 - Home improvement
+      31 - Refinancing
+      32 - Cash-out refinancing
+      4 - Other purpose
+      5 - Not applicable
+
+18. FIELD: lien_status
+   Description: Lien status of the property securing the covered loan, or in the case of an application, proposed to secure the covered loan
+   Values:
+      1 - Secured by a first lien
+      2 - Secured by a subordinate lien
+
+19. FIELD: reverse_mortgage
+   Description: Whether the covered loan or application is for a reverse mortgage
+   Values:
+      1 - Reverse mortgage
+      2 - Not a reverse mortgage
+      1111 - Exempt
+
+20. FIELD: open-end_line_of_credit
+   Description: Whether the covered loan or application is for an open-end line of credit
+   Values:
+      1 - Open-end line of credit
+      2 - Not an open-end line of credit
+      1111 - Exempt
+
+21. FIELD: business_or_commercial_purpose
+   Description: Whether the covered loan or application is primarily for a business or commercial purpose
+   Values:
+      1 - Primarily for a business or commercial purpose
+      2 - Not primarily for a business or commercial purpose
+      1111 - Exempt
+
+22. FIELD: loan_amount
+   Description: The amount of the covered loan, or the amount applied for
+   Values:
+      Varying values
+
+23. FIELD: combined_loan_to_value_ratio
+   Description: The ratio of the total amount of debt secured by the property to the value of the property relied on in making the credit decision
+   Values:
+      Varying values
+
+24. FIELD: interest_rate
+   Description: The interest rate for the covered loan or application
+   Values:
+      Varying values
+
+25. FIELD: rate_spread
+   Description: The difference between the covered loan’s annual percentage rate (APR) and the average prime offer rate (APOR) for a comparable transaction as of the date the interest rate is set
+   Values:
+      Varying values
+
+26. FIELD: hoepa_status
+   Description: Whether the covered loan is a high-cost mortgage
+   Values:
+      1 - High-cost mortgage
+      2 - Not a high-cost mortgage
+      3 - Not applicable
+
+27. FIELD: total_loan_costs
+   Description: The amount, in dollars, of total loan costs
+   Values:
+      Varying values
+
+28. FIELD: total_points_and_fees
+   Description: The total points and fees, in dollars, charged in connection with the covered loan
+   Values:
+      Varying values
+
+29. FIELD: origination_charges
+   Description: The total of all itemized amounts, in dollars, that are designated borrower-paid at or before closing
+   Values:
+      Varying values
+
+30. FIELD: discount_points
+   Description: The points paid, in dollars, to the creditor to reduce the interest rate
+   Values:
+      Varying values
+
+31. FIELD: lender_credits
+   Description: The amount, in dollars, of lender credits
+   Values:
+      Varying values
+
+32. FIELD: loan_term
+   Description: The number of months after which the legal obligation will mature or terminate, or would have matured or terminated
+   Values:
+      Varying values
+
+33. FIELD: prepayment_penalty_term
+   Description: The term, in months, of any prepayment penalty
+   Values:
+      Varying values
+
+34. FIELD: intro_rate_period
+   Description: The number of months, or proposed number of months in the case of an application, until the first date the interest rate may change after closing or account opening
+   Values:
+      Varying values
+
+35. FIELD: negative_amortization
+   Description: Whether the contractual terms include, or would have included, a term that would cause the covered loan to be a negative amortization loan
+   Values:
+      1 - Negative amortization
+      2 - No negative amortization
+      1111 - Exempt
+
+36. FIELD: interest_only_payment
+   Description: Whether the contractual terms include, or would have included, interest-only payments
+   Values:
+      1 - Interest-only payments
+      2 - No interest-only payments
+      1111 - Exempt
+
+37. FIELD: balloon_payment
+   Description: Whether the contractual terms include, or would have included, a balloon payment
+   Values:
+      1 - Balloon payment
+      2 - No balloon payment
+      1111 - Exempt
+
+38. FIELD: other_nonamortizing_features
+   Description: Whether the contractual terms include, or would have included, any term, other than those described in Paragraphs 1003.4(a)(27)(i), (ii), and (iii) that would allow for payments other than fully amortizing payments during the loan term
+   Values:
+      1 - Other non-fully amortizing features
+      2 - No other non-fully amortizing features
+      1111 - Exempt
+
+39. FIELD: property_value
+   Description: The value of the property securing the covered loan or, in the case of an application, proposed to secure the covered loan, relied on in making the credit decision
+   Values:
+      Varying values; Rounded to the midpoint of the nearest $10,000 interval for which the reported value falls
+
+40. FIELD: construction_method
+   Description: Construction method for the dwelling
+   Values:
+      1 - Site-built
+      2 - Manufactured home
+
+41. FIELD: occupancy_type
+   Description: Occupancy type for the dwelling
+   Values:
+      1 - Principal residence
+      2 - Second residence
+      3 - Investment property
+
+42. FIELD: manufactured_home_secured_property_type
+   Description: Whether the covered loan or application is, or would have been, secured by a manufactured home and land, or by a manufactured home and not land
+   Values:
+      1 - Manufactured home and land
+      2 - Manufactured home and not land
+      3 - Not applicable
+      1111 - Exempt
+
+43. FIELD: manufactured_home_land_property_interest
+   Description: The applicant’s or borrower’s land property interest in the land on which a manufactured home is, or will be, located
+   Values:
+      1 - Direct ownership
+      2 - Indirect ownership
+      3 - Paid leasehold
+      4 - Unpaid leasehold
+      5 - Not applicable
+      1111 - Exempt
+
+44. FIELD: total_units
+   Description: The number of individual dwelling units related to the property securing the covered loan or, in the case of an application, proposed to secure the covered loan
+   Values:
+      1
+      2
+      3
+      4
+      5-24
+      25-49
+      50-99
+      100-149
+      >149
+
+45. FIELD: ageapplicant
+   Description: The age of the applicant
+   Values:
+      <25
+      25-34
+      35-44
+      45-54
+      55-64
+      65-74
+      >74
+      8888
+
+46. FIELD: multifamily_affordable_units
+   Description: Reported values as a percentage, rounded to the nearest whole number, of the value reported for Total Units
+   Values:
+      Varying values
+
+47. FIELD: income
+   Description: The gross annual income, in thousands of dollars, relied on in making the credit decision, or if a credit decision was not made, the gross annual income relied on in processing the application
+   Values:
+      Varying values
+
+48. FIELD: debt_to_income_ratio
+   Description: The ratio, as a percentage, of the applicant’s or borrower’s total monthly debt to the total monthly income relied on in making the credit decision
+
+49. FIELD: Varying values; Ratios binned are:
+   Description: 
+
+50. FIELD: <20%
+   Description: 
+
+51. FIELD: 20%-<30%
+   Description: 
+
+52. FIELD: 30%-<36%
+   Description: 
+
+53. FIELD: 36%
+   Description: 
+
+54. FIELD: 37%
+   Description: 
+
+55. FIELD: 38%
+   Description: 
+
+56. FIELD: 39%
+   Description: 
+
+57. FIELD: 40%
+   Description: 
+
+58. FIELD: 41%
+   Description: 
+
+59. FIELD: 42%
+   Description: 
+
+60. FIELD: 43%
+   Description: 
+
+61. FIELD: 44%
+   Description: 
+
+62. FIELD: 45%
+   Description: 
+
+63. FIELD: 46%
+   Description: 
+
+64. FIELD: 47%
+   Description: 
+
+65. FIELD: 48%
+   Description: 
+
+66. FIELD: 49%
+   Description: 
+
+67. FIELD: 50%-60%
+   Description: 
+
+68. FIELD: >60%
+   Description: 
+
+69. FIELD: NA
+   Description: 
+
+70. FIELD: Exempt
+   Description: 
+
+71. FIELD: applicant_credit_score_type
+   Description: The name and version of the credit scoring model used to generate the credit score, or scores, relied on in making the credit decision
+   Values:
+      1 - Equifax Beacon 5.0
+      2 - Experian Fair Isaac
+      3 - FICO Risk Score Classic 04
+      4 - FICO Risk Score Classic 98
+      5 - VantageScore 2.0
+      6 - VantageScore 3.0
+      7 - More than one credit scoring model
+      8 - Other credit scoring model
+      9 - Not applicable
+      1111 - Exempt
+
+72. FIELD: co-applicant_credit_score_type
+   Description: The name and version of the credit scoring model used to generate the credit score, or scores, relied on in making the credit decision
+   Values:
+      1 - Equifax Beacon 5.0
+      2 - Experian Fair Isaac
+      3 - FICO Risk Score Classic 04
+      4 - FICO Risk Score Classic 98
+      5 - VantageScore 2.0
+      6 - VantageScore 3.0
+      7 - More than one credit scoring model
+      8 - Other credit scoring model
+      9 - Not applicable
+      10 - No co-applicant
+      11 – FICO Score 9
+      12 – FICO Score 8
+      13 – FICO Score 10
+      14 – FICO Score 10T
+      15 - VantageScore 4.0
+      1111 - Exempt
+
+73. FIELD: applicant_ethnicity-1
+   Description: Ethnicity of the applicant or borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+      3 - Information not provided by applicant in mail, internet, or telephone application
+      4 - Not applicable
+
+74. FIELD: applicant_ethnicity-2
+   Description: Ethnicity of the applicant or borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+75. FIELD: applicant_ethnicity-3
+   Description: Ethnicity of the applicant or borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+76. FIELD: applicant_ethnicity-4
+   Description: Ethnicity of the applicant or borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+77. FIELD: applicant_ethnicity-5
+   Description: Ethnicity of the applicant or borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+78. FIELD: co-applicant_ethnicity-1
+   Description: Ethnicity of the first co-applicant or co-borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+      3 - Information not provided by applicant in mail, internet, or telephone application
+      4 - Not applicable
+      5 - No co-applicant
+
+79. FIELD: co-applicant_ethnicity-2
+   Description: Ethnicity of the first co-applicant or co-borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+80. FIELD: co-applicant_ethnicity-3
+   Description: Ethnicity of the first co-applicant or co-borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+81. FIELD: co-applicant_ethnicity-4
+   Description: Ethnicity of the first co-applicant or co-borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+82. FIELD: co-applicant_ethnicity-5
+   Description: Ethnicity of the first co-applicant or co-borrower
+   Values:
+      1 - Hispanic or Latino
+      11 - Mexican
+      12 - Puerto Rican
+      13 - Cuban
+      14 - Other Hispanic or Latino
+      2 - Not Hispanic or Latino
+
+83. FIELD: applicant_ethnicity_observed
+   Description: Whether the ethnicity of the applicant or borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+
+84. FIELD: co-applicant_ethnicity_observed
+   Description: Whether the ethnicity of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+      4 - No co-applicant
+
+85. FIELD: applicant_race-1
+   Description: Race of the applicant or borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+      6 - Information not provided by applicant in mail, internet, or telephone application
+      7 - Not applicable
+
+86. FIELD: applicant_race-2
+   Description: Race of the applicant or borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+87. FIELD: applicant_race-3
+   Description: Race of the applicant or borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+88. FIELD: applicant_race-4
+   Description: Race of the applicant or borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+89. FIELD: applicant_race-5
+   Description: Race of the applicant or borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+90. FIELD: co-applicant_race-1
+   Description: Race of the first co-applicant or co-borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+      6 - Information not provided by applicant in mail, internet, or telephone application
+      7 - Not applicable
+      8 - No co-applicant
+
+91. FIELD: co-applicant_race-2
+   Description: Race of the first co-applicant or co-borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+92. FIELD: co-applicant_race-3
+   Description: Race of the first co-applicant or co-borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+93. FIELD: co-applicant_race-4
+   Description: Race of the first co-applicant or co-borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+94. FIELD: co-applicant_race-5
+   Description: Race of the first co-applicant or co-borrower
+   Values:
+      1 - American Indian or Alaska Native
+      2 - Asian
+      21 - Asian Indian
+      22 - Chinese
+      23 - Filipino
+      24 - Japanese
+      25 - Korean
+      26 - Vietnamese
+      27 - Other Asian
+      3 - Black or African American
+      4 - Native Hawaiian or Other Pacific Islander
+      41 - Native Hawaiian
+      42 - Guamanian or Chamorro
+      43 - Samoan
+      44 - Other Pacific Islander
+      5 - White
+
+95. FIELD: applicant_race_observed
+   Description: Whether the race of the applicant or borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+
+96. FIELD: co-applicant_race_observed
+   Description: Whether the race of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+      4 - No co-applicant
+
+97. FIELD: applicant_sex
+   Description: Sex of the applicant or borrower
+   Values:
+      1 - Male
+      2 - Female
+      3 - Information not provided by applicant in mail, internet, or telephone application
+      4 - Not applicable
+      6 - Applicant selected both male and female
+
+98. FIELD: co-applicant_sex
+   Description: Sex of the first co-applicant or co-borrower
+   Values:
+      1 - Male
+      2 - Female
+      3 - Information not provided by applicant in mail, internet, or telephone application
+      4 - Not applicable
+      5 - No co-applicant
+      6 - Co-applicant selected both male and female
+
+99. FIELD: applicant_sex_observed
+   Description: Whether the sex of the applicant or borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+
+100. FIELD: co-applicant_sex_observed
+   Description: Whether the sex of the first co-applicant or co-borrower was collected on the basis of visual observation or surname
+   Values:
+      1 - Collected on the basis of visual observation or surname
+      2 - Not collected on the basis of visual observation or surname
+      3 - Not applicable
+      4 - No co-applicant
+
+101. FIELD: applicant_age_above_62
+   Description: Whether the applicant or borrower age is 62 or above
+   Values:
+      Yes
+      No
+      NA
+
+102. FIELD: co-applicant_age
+   Description: The age, in years, of the first co-applicant or co-borrower
+
+103. FIELD: Varying values; Ages binned are:
+   Description: 
+
+104. FIELD: < 25
+   Description: 
+
+105. FIELD: 25-34
+   Description: 
+
+106. FIELD: 35-44
+   Description: 
+
+107. FIELD: 45-54
+   Description: 
+
+108. FIELD: 55-64
+   Description: 
+
+109. FIELD: 65-74
+   Description: 
+
+110. FIELD: > 74
+   Description: 
+
+111. FIELD: 8888
+   Description: 
+
+112. FIELD: 9999
+   Description: 
+
+113. FIELD: co-applicant_age_above_62
+   Description: Whether the co-applicant or co-borrower age is 62 or above
+   Values:
+      Yes
+      No
+      NA
+
+114. FIELD: submission_of_application
+   Description: Whether the applicant or borrower submitted the application directly to the financial institution
+   Values:
+      1 - Submitted directly to your institution
+      2 - Not submitted directly to your institution
+      3 - Not applicable
+      1111 - Exempt
+
+115. FIELD: initially_payable_to_institution
+   Description: Whether the obligation arising from the covered loan was, or, in the case of an application, would have been, initially payable to the financial institution
+   Values:
+      1 - Initially payable to your institution
+      2 - Not initially payable to your institution
+      3 - Not applicable
+      1111 - Exempt
+
+116. FIELD: aus-1
+   Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
+   Values:
+      1 - Desktop Underwriter (DU)
+      2 - Loan Prospector (LP) or Loan Product Advisor
+      3 - Technology Open to Approved Lenders (TOTAL) Scorecard
+      4 - Guaranteed Underwriting System (GUS)
+      5 - Other
+      6 - Not applicable
+      7 - Internal Proprietary System
+      1111 - Exempt
+
+117. FIELD: aus-2
+   Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
+   Values:
+      1 - Desktop Underwriter (DU)
+      2 - Loan Prospector (LP) or Loan Product Advisor
+      3 - Technology Open to Approved Lenders (TOTAL) Scorecard
+      4 - Guaranteed Underwriting System (GUS)
+      5 - Other
+      7 - Internal Proprietary System
+
+118. FIELD: aus-3
+   Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
+   Values:
+      1 - Desktop Underwriter (DU)
+      2 - Loan Prospector (LP) or Loan Product Advisor
+      3 - Technology Open to Approved Lenders (TOTAL) Scorecard
+      4 - Guaranteed Underwriting System (GUS)
+      7 - Internal Proprietary System
+
+119. FIELD: aus-4
+   Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
+   Values:
+      1 - Desktop Underwriter (DU)
+      2 - Loan Prospector (LP) or Loan Product Advisor
+      3 - Technology Open to Approved Lenders (TOTAL) Scorecard
+      4 - Guaranteed Underwriting System (GUS)
+      7 - Internal Proprietary System
+
+120. FIELD: aus-5
+   Description: The automated underwriting system(s) (AUS) used by the financial institution to evaluate the application
+   Values:
+      1 - Desktop Underwriter (DU)
+      2 - Loan Prospector (LP) or Loan Product Advisor
+      3 - Technology Open to Approved Lenders (TOTAL) Scorecard
+      4 - Guaranteed Underwriting System (GUS)
+      7 - Internal Proprietary System
+
+121. FIELD: denial_reason-1
+   Description: The principal reason, or reasons, for denial
+   Values:
+      1 - Debt-to-income ratio
+      2 - Employment history
+      3 - Credit history
+      4 - Collateral
+      5 - Insufficient cash (downpayment, closing costs)
+      6 - Unverifiable information
+      7 - Credit application incomplete
+      8 - Mortgage insurance denied
+      9 - Other
+      10 - Not applicable
+
+122. FIELD: denial_reason-2
+   Description: The principal reason, or reasons, for denial
+   Values:
+      1 - Debt-to-income ratio
+      2 - Employment history
+      3 - Credit history
+      4 - Collateral
+      5 - Insufficient cash (downpayment, closing costs)
+      6 - Unverifiable information
+      7 - Credit application incomplete
+      8 - Mortgage insurance denied
+      9 - Other
+
+123. FIELD: denial_reason-3
+   Description: The principal reason, or reasons, for denial
+   Values:
+      1 - Debt-to-income ratio
+      2 - Employment history
+      3 - Credit history
+      4 - Collateral
+      5 - Insufficient cash (downpayment, closing costs)
+      6 - Unverifiable information
+      7 - Credit application incomplete
+      8 - Mortgage insurance denied
+      9 - Other
+
+124. FIELD: denial_reason-4
+   Description: The principal reason, or reasons, for denial
+   Values:
+      1 - Debt-to-income ratio
+      2 - Employment history
+      3 - Credit history
+      4 - Collateral
+      5 - Insufficient cash (downpayment, closing costs)
+      6 - Unverifiable information
+      7 - Credit application incomplete
+      8 - Mortgage insurance denied
+      9 - Other
+      Census fields produced by the U.S. Census Bureau and appended to public HMDA Data
+
+125. FIELD: tract_population
+   Description: Total population in tract
+   Values:
+      Varying values
+
+126. FIELD: tract_minority_population_percent
+   Description: Percentage of minority population to total population for tract, rounded to two decimal places
+   Values:
+      Varying values
+
+127. FIELD: ffiec_msa_md_median_family_income
+   Description: FFIEC Median family income in dollars for the MSA/MD in which the tract is located (adjusted annually by FFIEC)
+   Values:
+      Varying values
+
+128. FIELD: tract_to_msa_income_percentage
+   Description: Percentage of tract median family income compared to MSA/MD median family income
+   Values:
+      Varying values
+
+129. FIELD: tract_owner_occupied_units
+   Description: Number of dwellings, including individual condominiums, that are lived in by the owner
+   Values:
+      Varying values
+
+130. FIELD: tract_one_to_four_family_homes
+   Description: Dwellings that are built to houses with fewer than 5 families
+   Values:
+      Varying values
+
+131. FIELD: tract_median_age_of_housing_units
+   Description: Tract median age of homes
+   Values:
+      Varying values
+
+================================================================================
+ADDITIONAL NOTE (from source document)
+================================================================================
 
 Annual vs. Snapshot file structure:
+
 Summary: The "annual" LAR archive and the Snapshot LAR file are schema-identical in substance. All apparent differences reduce to one of three categories:
+
 1. Naming-convention only (38 fields) — NOT a real difference
 The annual file uses hyphens in multi-part field names where the Snapshot LAR uses underscores. Same variable, same definition, same codes — just formatted differently:
-•	applicant_ethnicity-1…5 (annual) = applicant_ethnicity_1…5 (snapshot)
-•	applicant_race-1…5 (annual) = applicant_race_1…5 (snapshot)
-•	co-applicant_ethnicity-1…5, co-applicant_race-1…5, co-applicant_age, co-applicant_age_above_62, co-applicant_credit_score_type, co-applicant_ethnicity_observed, co-applicant_race_observed, co-applicant_sex, co-applicant_sex_observed (annual, hyphenated) = same fields with underscores (snapshot)
-•	aus-1…5 (annual) = aus_1…5 (snapshot)
-•	denial_reason-1…4 (annual) = denial_reason_1…4 (snapshot)
-•	derived_msa-md (annual) = derived_msa_md (snapshot)
-•	open-end_line_of_credit (annual) = open_end_line_of_credit (snapshot)
+
+applicant_ethnicity-1…5 (annual) = applicant_ethnicity_1…5 (snapshot)
+
+applicant_race-1…5 (annual) = applicant_race_1…5 (snapshot)
+
+co-applicant_ethnicity-1…5, co-applicant_race-1…5, co-applicant_age, co-applicant_age_above_62, co-applicant_credit_score_type, co-applicant_ethnicity_observed, co-applicant_race_observed, co-applicant_sex, co-applicant_sex_observed (annual, hyphenated) = same fields with underscores (snapshot)
+
+aus-1…5 (annual) = aus_1…5 (snapshot)
+
+denial_reason-1…4 (annual) = denial_reason_1…4 (snapshot)
+
+derived_msa-md (annual) = derived_msa_md (snapshot)
+
+open-end_line_of_credit (annual) = open_end_line_of_credit (snapshot)
+
 2. Genuine content difference — TS-only fields absent from the annual file (8 fields)
 These are Transmittal Sheet (institution-level) fields, not LAR (application-level) fields — the annual file used here is LAR-only, with no TS content merged in:
 agency_code, calendar_quarter, lar_count, respondent_name, respondent_city, respondent_state, respondent_zip_code, tax_id
+
 3. Likely file artifact, not an HMDA variable (1 field)
 Unnamed: 0 — appears only in the snapshot LAR; almost certainly a stray pandas row-index column saved into that CSV at some point (not documented anywhere in FFIEC's LAR/TS field references). Verify by inspection; safe to drop if confirmed.
+
 Conclusion: Once naming is normalized (hyphen → underscore) and TS/artifact fields are excluded from the comparison, the annual file and Snapshot LAR contain the same 99 real HMDA application-level variables, with identical definitions per FFIEC's official LAR Data Fields documentation (https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields). No additional variables exist in one file that are substantively absent from the other.
+
 Action item: Extend RENAME_CROSSWALK in hmda_pipeline.py to map all 38 hyphenated names to their underscored canonical form (or vice versa) before harmonization, if annual-sourced and snapshot-sourced files are ever combined in the same pipeline run.
 
 
-Public Transmittal Sheet (TS) - Data Fields
-activity_year
-•	Description: The calendar year of data collection.
-activity_year	Value
-2017	2017
-2018	2018
-2019	2019
-2020	2020
-2021	2021
-2022	2022
-2023	2023
-2024	2024
-2025	2025
-calendar_quarter
-•	Description: The calandar quarter to which the data refer. Quarter 4 is for the annual submission of data.
-•	Values:
-o	4
-lei
-•	Description: The LEI (Legal Entity Identifier) of the filing institution.
-•	Values:
-o	Various values
-tax_id
-•	Description: The federal tax ID of the filing institution.
-•	Values:
-o	Various values
-agency_code
-•	Description: The HMDA agency code of the filing institution.
-•	Values:
-Value	Abbreviation	Name
-1	OCC	Office of the Comptroller of the Currency
-2	FRB	Federal Reserve System
-3	FDIC	Federal Deposit Insurance Corporation
-5	NCUA	National Credit Union Administration
-7	HUD	Department of Housing and Urban Development
-9	CFPB	Consumer Financial Protection Bureau
-respondent_name
-•	Description: The name of the filing institution.
-•	Values:
-o	Various values
-respondent_state
-•	Description: The 2 letter state code for the office of the filing institution.
-•	Values:
-o	Valid state codes
-respondent_city
-•	Description: The city name for the office of the filing institution.
-•	Values:
-o	Various values
-respondent_zip_code
-•	Description: The ZIP code for the office of the filing institution.
-•	Values:
-o	Various values
-lar_count
-•	Description: The number of Loan Application Records (LAR) contained in the institution's LAR data file.
-•	Values:
-o	Various values
 
+================================================================================
+PUBLIC TRANSMITTAL SHEET (TS) - DATA FIELDS
+Full field reference — CFPB HMDA Public Data
+================================================================================
 
+1. FIELD: activity_year
+   Description: The calendar year of data collection.
 
+2. FIELD: calendar_quarter
+   Description: The calandar quarter to which the data refer. Quarter 4 is for the annual submission of data.
+   Values:
+      4
+
+3. FIELD: lei
+   Description: The LEI (Legal Entity Identifier) of the filing institution.
+   Values:
+      Various values
+
+4. FIELD: tax_id
+   Description: The federal tax ID of the filing institution.
+   Values:
+      Various values
+
+5. FIELD: agency_code
+   Description: The HMDA agency code of the filing institution.
+   Values:
+      Value | Abbreviation | Name                                       
+      1     | OCC          | Office of the Comptroller of the Currency  
+      2     | FRB          | Federal Reserve System                     
+      3     | FDIC         | Federal Deposit Insurance Corporation      
+      5     | NCUA         | National Credit Union Administration       
+      7     | HUD          | Department of Housing and Urban Development
+      9     | CFPB         | Consumer Financial Protection Bureau       
+
+6. FIELD: respondent_name
+   Description: The name of the filing institution.
+   Values:
+      Various values
+
+7. FIELD: respondent_state
+   Description: The 2 letter state code for the office of the filing institution.
+   Values:
+      Valid state codes
+
+8. FIELD: respondent_city
+   Description: The city name for the office of the filing institution.
+   Values:
+      Various values
+
+9. FIELD: respondent_zip_code
+   Description: The ZIP code for the office of the filing institution.
+   Values:
+      Various values
+
+10. FIELD: lar_count
+   Description: The number of Loan Application Records (LAR) contained in the institution's LAR data file.
+   Values:
+      Various values
 
 
 ## Contact
